@@ -24,7 +24,7 @@ public class AdminDao {
     @RequiresApi(api = Build.VERSION_CODES.O)
     private AdminDao() {
         db = new HashSet<>();
-        db.add("grp_fiw_fiwis_teststafff");
+        db.add("grp_fiw_fiwis_teststaff");
     }
 
     // static method to create instance of Singleton class

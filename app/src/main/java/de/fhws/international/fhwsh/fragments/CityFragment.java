@@ -119,7 +119,7 @@ public class CityFragment extends Fragment implements OnMapReadyCallback {
                 @Override
                 public void onClick(View v) {
                     Toast toast = Toast.makeText(getContext(),
-                            "Пора покормить кота!", Toast.LENGTH_SHORT);
+                            "Click on the marker that you want to delete!", Toast.LENGTH_SHORT);
                     toast.show();
                     gMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                         @Override

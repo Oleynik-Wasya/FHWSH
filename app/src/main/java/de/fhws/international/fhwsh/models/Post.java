@@ -6,16 +6,18 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Post {
     private long id;
     private String title;
     private String info;
-    private LocalDate date;
+    private LocalDateTime date;
 
-    public Post(long id, String title, String info, LocalDate date) {
+    public Post(long id, String title, String info, LocalDateTime date) {
         this.id = id;
         this.title = title;
         this.info = info;
@@ -27,7 +29,7 @@ public class Post {
         this.id = id;
         this.title = title;
         this.info = info;
-        this.date = LocalDate.now();
+        this.date = LocalDateTime.now();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -35,14 +37,14 @@ public class Post {
         this.title = title;
         this.info = info;
         this.id = title.hashCode() + info.hashCode();
-        this.date = LocalDate.now();
+        this.date = LocalDateTime.now();
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 

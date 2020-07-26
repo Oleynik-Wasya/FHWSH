@@ -49,9 +49,18 @@
             android:id="@+id/logIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#8BC34A"
             android:onClick="confirmInput"
             android:text="LogIn"
             android:textColor="#FFFFFF"
-            android:background="#8BC34A"
             android:textColorHint="#00B12D2D" />
+
+    <ProgressBar
+            android:id="@+id/pBarLogin"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:visibility="gone"/>
 </LinearLayout>

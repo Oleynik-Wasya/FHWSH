@@ -3,6 +3,7 @@ package de.fhws.international.fhwsh.utils;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import de.fhws.international.fhwsh.R;
@@ -43,11 +46,13 @@ public class RecyclePostAdapter extends RecyclerView.Adapter<RecyclePostAdapter.
         return new PostHolder(linearLayout);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull final PostHolder holder, final int position) {
         holder.title.setText(posts.get(position).getTitle());
         holder.text.setText(posts.get(position).getInfo());
-        holder.date.setText(posts.get(position).getDate().toString());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        holder.date.setText(dtf.format(posts.get(position).getDate()));
         if (AdminDao.currentUserIsAdmin) {
             holder.btnDel.setOnClickListener(new View.OnClickListener() {
                 @Override

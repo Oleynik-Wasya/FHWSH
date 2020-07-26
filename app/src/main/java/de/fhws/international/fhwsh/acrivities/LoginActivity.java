@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,11 +44,13 @@ public class LoginActivity extends AppCompatActivity {
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ProgressBar pgsBar = (ProgressBar) findViewById(R.id.pBarLogin);
+                pgsBar.setVisibility(v.VISIBLE);
                 TextInputLayout userNameTextInputLayout = findViewById(R.id.userNameLogin);
-                final String userName = "k49418"; //userNameTextInputLayout.getEditText().getText().toString();
+                final String userName = userNameTextInputLayout.getEditText().getText().toString();
 
                 TextInputLayout passwordTextInputLayout = findViewById(R.id.passwordLogin);
-                final String password = "systemoutprintln24111999"; // passwordTextInputLayout.getEditText().getText().toString();
+                final String password = passwordTextInputLayout.getEditText().getText().toString();
 
                 client = new OkHttpClient.Builder()
                         .authenticator(new Authenticator() {
@@ -93,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
                                             editor.putString("faculty", jsonObject.getString("facultyName"));
                                             editor.putString("role", jsonObject.getString("role"));
                                             for (String role : jsonObject.getString("role").split(",")) {
-                                                if (AdminDao.getInstance().db.contains(role)){
+                                                if (AdminDao.getInstance().db.contains(role)) {
                                                     AdminDao.currentUserIsAdmin = true;
                                                 }
                                             }
