@@ -12,77 +12,180 @@
             android:layout_height="match_parent">
 
         <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
-            <ImageView
-                    android:id="@+id/imageView_message_image"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/icon" />
-
-            <TextView
-                    android:id="@+id/facultyAcc"
-                    android:layout_width="wrap_content"
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:text="faculty"
-                    android:textSize="30sp" />
+                    android:orientation="horizontal">
 
-            <TextView
-                    android:id="@+id/telephoneAcc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:text="telephone"
-                    android:textSize="30sp" />
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="30dp">
 
-            <TextView
-                    android:id="@+id/nameAcc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:text="name"
-                    android:textSize="30sp" />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="Faculty:"
+                            android:textSize="@dimen/textSizeAcc" />
 
-            <TextView
-                    android:id="@+id/cityAcc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:text="city"
-                    android:textSize="30sp" />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="Degree Program:"
+                            android:textSize="@dimen/textSizeAcc" />
 
-            <TextView
-                    android:id="@+id/semesterAcc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:text="semester"
-                    android:textSize="30sp" />
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="First Name: "
+                            android:textSize="@dimen/textSizeAcc" />
 
-            <Button
-                    android:id="@+id/logOut"
-                    android:layout_width="wrap_content"
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="Last Name: "
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="K-Number:"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="Semester:"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="15dp"
+                            android:text="Role:"
+                            android:textSize="@dimen/textSizeAcc" />
+                </LinearLayout>
+
+                <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="30dp">
+
+                    <TextView
+                            android:id="@+id/facultyAcc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="faculty"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:id="@+id/degreeProgramAcc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="Degree Program"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:id="@+id/firstNameAcc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="name"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:id="@+id/lastNameAcc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="name"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:id="@+id/kNumberAcc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="kNumber"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:id="@+id/semesterAcc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="semester"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                    <TextView
+                            android:id="@+id/role"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="15dp"
+                            android:text="role"
+                            android:textSize="@dimen/textSizeAcc" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
-                    android:onClick="logOut"
-                    android:text="LogOut"
-                    tools:layout_centerHorizontal="true" />
+                    android:orientation="horizontal">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="30dp"
+                        android:orientation="vertical">
+
+                    <Button
+                            android:id="@+id/logOut"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:onClick="logOut"
+                            android:text="LogOut"
+                            android:background="@color/colorPrimary"
+                            android:textColor="#FFFFFF" />
+
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

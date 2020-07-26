@@ -1,6 +1,7 @@
-package de.fhws.international.fhwsh;
+package de.fhws.international.fhwsh.acrivities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,6 +11,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import de.fhws.international.fhwsh.R;
 import de.fhws.international.fhwsh.fragments.AccountFragment;
 import de.fhws.international.fhwsh.fragments.ChatFragment;
 import de.fhws.international.fhwsh.fragments.CityFragment;
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ((TextView) hView.findViewById(R.id.email)).setText(sharedpreferences.getString("email", ""));
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -90,11 +94,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new ChatFragment()).commit();
                 break;
-            case R.id.nav_people:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new PeopleFragment()).commit();
-                break;
-
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;

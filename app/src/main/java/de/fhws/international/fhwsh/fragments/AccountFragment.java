@@ -14,8 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import de.fhws.international.fhwsh.LoginActivity;
-import de.fhws.international.fhwsh.MainActivity;
+import de.fhws.international.fhwsh.acrivities.LoginActivity;
 import de.fhws.international.fhwsh.R;
 
 public class AccountFragment extends Fragment implements View.OnClickListener {
@@ -31,11 +30,13 @@ public class AccountFragment extends Fragment implements View.OnClickListener {
 
         sharedpreferences = getActivity().getSharedPreferences(getString(R.string.refName),
                 Context.MODE_PRIVATE);
-        ((TextView) view.findViewById(R.id.cityAcc)).setText(sharedpreferences.getString("city", ""));
-        ((TextView) view.findViewById(R.id.nameAcc)).setText(sharedpreferences.getString("firstName", "") + " " + sharedpreferences.getString("lastName", ""));
+        ((TextView) view.findViewById(R.id.kNumberAcc)).setText(sharedpreferences.getString("cn", ""));
+        ((TextView) view.findViewById(R.id.firstNameAcc)).setText(sharedpreferences.getString("firstName", ""));
+        ((TextView) view.findViewById(R.id.lastNameAcc)).setText(sharedpreferences.getString("lastName", ""));
         ((TextView) view.findViewById(R.id.semesterAcc)).setText(sharedpreferences.getString("semester", ""));
-        ((TextView) view.findViewById(R.id.telephoneAcc)).setText(sharedpreferences.getString("telephone", ""));
+        ((TextView) view.findViewById(R.id.degreeProgramAcc)).setText(sharedpreferences.getString("degreeProgram", ""));
         ((TextView) view.findViewById(R.id.facultyAcc)).setText(sharedpreferences.getString("faculty", ""));
+        ((TextView) view.findViewById(R.id.role)).setText(sharedpreferences.getString("role", ""));
 
 
         return view;

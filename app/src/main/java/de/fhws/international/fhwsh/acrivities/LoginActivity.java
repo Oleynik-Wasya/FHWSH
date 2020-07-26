@@ -1,14 +1,11 @@
-package de.fhws.international.fhwsh;
+package de.fhws.international.fhwsh.acrivities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +18,8 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import de.fhws.international.fhwsh.R;
+import de.fhws.international.fhwsh.dao.AdminDao;
 import okhttp3.Authenticator;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -45,31 +44,23 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 TextInputLayout userNameTextInputLayout = findViewById(R.id.userNameLogin);
-                final String userName = userNameTextInputLayout.getEditText().getText().toString();
+                final String userName = "k49418"; //userNameTextInputLayout.getEditText().getText().toString();
 
                 TextInputLayout passwordTextInputLayout = findViewById(R.id.passwordLogin);
-                final String password = passwordTextInputLayout.getEditText().getText().toString();
+                final String password = "systemoutprintln24111999"; // passwordTextInputLayout.getEditText().getText().toString();
 
                 client = new OkHttpClient.Builder()
                         .authenticator(new Authenticator() {
                             @Override
-                            public Request authenticate(Route route, Response response) throws IOException {
-                                if (response.request().header("Authorization") != null) {
-                                    return null; // Give up, we've already attempted to authenticate.
-                                }
-
-                                System.out.println("Authenticating for response: " + response);
-                                System.out.println("Challenges: " + response.challenges());
+                            public Request authenticate(Route route, okhttp3.Response response) throws IOException {
                                 String credential = Credentials.basic(userName, password);
-                                return response.request().newBuilder()
-                                        .header("Authorization", credential)
-                                        .build();
+                                return response.request().newBuilder().header("Authorization", credential).build();
                             }
                         })
                         .build();
 
                 Request request = new Request.Builder()
-                        .url("https://api.fiw.fhws.de/auth/api/users/me")
+                        .url("https://apistaging.fiw.fhws.de/auth/api/users/me")
                         .build();
 
                 client.newCall(request).enqueue(new Callback() {
@@ -86,6 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                             try {
                                 jsonObject = new JSONObject(response.body().string());
                                 LoginActivity.this.runOnUiThread(new Runnable() {
+                                    @RequiresApi(api = Build.VERSION_CODES.O)
                                     @Override
                                     public void run() {
                                         SharedPreferences pref = getApplicationContext().getSharedPreferences(getString(R.string.refName), 0);
@@ -93,12 +85,18 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putString("userName", userName);
                                         try {
                                             editor.putString("email", jsonObject.getString("emailAddress"));
-                                            editor.putString("city", jsonObject.getString("city"));
+                                            editor.putString("cn", jsonObject.getString("cn"));
                                             editor.putString("firstName", jsonObject.getString("firstName"));
                                             editor.putString("lastName", jsonObject.getString("lastName"));
                                             editor.putString("semester", jsonObject.getString("semester"));
-                                            editor.putString("telephone", jsonObject.getString("telephoneNumber"));
+                                            editor.putString("degreeProgram", jsonObject.getString("degreeProgram"));
                                             editor.putString("faculty", jsonObject.getString("facultyName"));
+                                            editor.putString("role", jsonObject.getString("role"));
+                                            for (String role : jsonObject.getString("role").split(",")) {
+                                                if (AdminDao.getInstance().db.contains(role)){
+                                                    AdminDao.currentUserIsAdmin = true;
+                                                }
+                                            }
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
