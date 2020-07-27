@@ -43,8 +43,8 @@ public class LoginActivity extends AppCompatActivity {
         logInButton = findViewById(R.id.logIn);
         logInButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(final View v) {
-                final ProgressBar pgsBar = (ProgressBar) findViewById(R.id.pBarLogin);
+            public void onClick(View v) {
+                ProgressBar pgsBar = (ProgressBar) findViewById(R.id.pBarLogin);
                 pgsBar.setVisibility(v.VISIBLE);
                 TextInputLayout userNameTextInputLayout = findViewById(R.id.userNameLogin);
                 final String userName = userNameTextInputLayout.getEditText().getText().toString();
@@ -111,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
                                 e.printStackTrace();
                             }
                         }
-                        pgsBar.setVisibility(View.GONE);
                     }
                 });
             }

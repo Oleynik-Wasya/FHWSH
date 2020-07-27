@@ -5,4 +5,5 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="refName">references</string>
     <string name="textSizeAcc">15dp</string>
+    <string name="visit_fhws_elearning">Visit FHWS elearning</string>
 </resources>
