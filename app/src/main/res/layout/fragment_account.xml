@@ -141,14 +141,14 @@
                             android:textSize="@dimen/textSizeAcc" />
 
                     <TextView
-                            android:id="@+id/semesterAcc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:layout_gravity="right"
-                            android:layout_marginTop="15dp"
-                            android:text="semester"
-                            android:textSize="@dimen/textSizeAcc" />
+                        android:id="@+id/semesterAcc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="15dp"
+                        android:text="semester"
+                        android:textSize="@dimen/textSizeAcc" />
 
                     <TextView
                             android:id="@+id/role"
